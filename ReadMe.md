@@ -1,60 +1,78 @@
 # Base de datos
 
-## Definición:
+## Definición
 
 Se puede decir que es un sistema utilizado para almacenar datos pero hay muchas formas de almacenar datos.
+
 Se puede decir que también es un sistema informático para almacenar datos.
 
-# Base de datos relacional:
+# Base de datos relacional
+
 Impone reglas específicas en un sistema que gobierna como se estructuran los datos almacenado y recuperado (En este tipo de base de datos, los datos se organizan en tablas que contienen filas y columnas).
 
-### Un ejemplo de base de datos relacional
+## Un ejemplo de base de datos relacional
+
 Tienes dos columnas con las filas necesarias para las mascotas de cada persona, una columna con el nombre de la mascota y otra con el tipo de animal que es. Luego tienes que añadir otra tabla para el identificador del dueño de la mascota.
 
 ## Un sistema de gestión de bases de datos relacionales
+
 Te da herramientas para construir una base de datos para cumplir su conjunto de requisitos. Una vez creada la tabla el “sistema de gestión de base de datos” o “RDBMS” le ayudará a organizar y almacenar sus datos.
 
-### Consejos para empresas:
--Empresas pequeñas: Estaría bien servida con un RDBMS de escritorio como Microsoft Access o FileMaker.
--Empresas medianas, grandes y clientes empresariales con sus propios centros de datos: Estarían bien servidos con Microsoft SQL Server, Oracle, PostgreSQL o MySQL.
--Si desea que sus datos se almacenen en la nube estarían bien Microsoft Azule SQL Database o Amazon RDS.
+### Consejos para empresas
 
-## Todos los conceptos de este “curso” valen para cualquier tipo de sistema operativo.
+- Empresas pequeñas: Estaría bien servida con un RDBMS de escritorio como Microsoft Access o FileMaker.
+- Empresas medianas, grandes y clientes empresariales con sus propios centros de datos: Estarían bien servidos con Microsoft SQL Server, Oracle, PostgreSQL o MySQL.
+- Si desea que sus datos se almacenen en la nube estarían bien Microsoft Azule SQL Database o Amazon RDS.
 
+## NOTA
+
+> Todos los conceptos de este _curso_ valen para cualquier tipo de sistema operativo.
 
 
 # Modelo cliente-servidor
 
-### Primero está el servidor de base de datos donde se almacenan y aseguran los datos, el segundo componente es el cliente, es la interfaz que permite a los usuarios conectarse al servidor para enviar comandos y controlar su funcionamiento.
+1. Primero está el **servidor de base de datos** donde se almacenan y aseguran los datos.
+2. El segundo componente es el **cliente**, es la interfaz que permite a los usuarios conectarse al servidor para enviar comandos y controlar su funcionamiento.
 
-### Se pueden realizar conexiones a través de sistemas separados y reunir información de formas nuevas y impactantes
+## Otras consideraciones
 
-### Tienes que buscar un servidor de base de datos compatible con el sistema operativo que estes usando.
+- Se pueden realizar conexiones a través de sistemas separados y reunir información de formas nuevas y impactantes.
+- Tienes que buscar un servidor de base de datos compatible con el sistema operativo que estes usando.
 
-## Crear tu propia base de datos
+## Crea tu propia base de datos
 
-### 2 problemas:
-Primero los servidores esperan a que se ejecuten en hardware dedicado.
-Segundo que los servidores de bases de datos esperan tener control total sobre su hardware.
+### 2 problemas
+
+1. Los servidores esperan a que se ejecuten en hardware dedicado.
+2. Los servidores de bases de datos esperan tener control total sobre su hardware.
 
 ### Solución a ambos problemas
+
 La solución es instalar software de gestión de base de datos dentro de un recipiente aislado.
 
 Los contenedores crean un gestor de base de datos y los componentes necesarios pueden hacer lo que sea necesario sin tener posibilidad de realizar cambios en su programa principal.
 
 ## Contenedores
-Son rápidos de crear.
-Diseñados para ser efímeros.
-No tienes que tener miedo de estropear algo.
 
-## Aplicaciones necesarias:
-Descargar Docker que se encarga de administrar contenedores.(https://www.docker.com/products/docker-desktop)
-Todos los comandos de Docker comienzan con la palabra Docker.
+- Son rápidos de crear.
+- Diseñados para ser efímeros.
+- No tienes que tener miedo de estropear algo.
 
-## Comandos básicos Docker:
-Docker version.
-Si pones Docker solo, te dará una lista de comandos que puedes usar.
-Si buscas información sobre un comando para una cosa en concreto, por ejemplo Docker images, lo escribes y das enter, ahí te aparecerán opciones para hacer con fotos en Docker.
+## Aplicaciones necesarias
+
+- [Descargar Docker](https://www.docker.com/products/docker-desktop) que se encarga de administrar contenedores.
+
+Todos los comandos de Docker comienzan con la palabra `docker`.
+
+## Comandos básicos Docker
+
+```bash
+docker version.
+```
+
+Si pones `docker` solo, te dará una lista de comandos que puedes usar.
+
+Si buscas información sobre un comando para una cosa en concreto, por ejemplo `docker images`, lo escribes y das enter, ahí te aparecerán opciones para hacer con fotos en Docker.
 
 ## Imagenes
 Son paquetes de software que describe una instalación predeterminada del software y todos los componentes que necesita para ejecutarse.
@@ -93,18 +111,22 @@ Si quieres detener un contenedor escribe docker stop my el nombre del contenedor
 Microsoft SQL server
 
 Iniciamos sesión en docker.
-Ponemos docker exec -it y el nombre del server al que queremos conectarnos bash al final.
+
+Ponemos `docker exec -it` y el nombre del server al que queremos conectarnos bash al final.
+
 Ejemplo:
-~~~
- docker exec -it sqlserver2019 bash.
-~~~
 
- Ahora entrar en la carpeta en este caso la mia es:
-~~~
+```bash
+docker exec -it sqlserver2019 bash.
+```
+
+Ahora entrar en la carpeta en este caso la mia es:
+
+```bash
 /opt/mysql-tools/bin/sqlcmd -U sa -P Adam123456
-~~~
+```
 
-La -U es para especificar la cuenta del usuario y la -P es para escribir la contraseña.
+La `-U` es para especificar la cuenta del usuario y la `-P` es para escribir la contraseña.
 
 Puesto esto te pide el comando de la primera linea, puedes ver la versión, en la primera linea pones SELECT  @@version y en la segunda línea pones GO y dice la versión.
 
@@ -180,7 +202,7 @@ Debajo de la lista, puede elegir la opción que desea modificar (por ejemplo, de
 Una vez que se elige la opción deseada, aparecerá el cuadro de información, que nos sugiere reiniciar Azure Data Studio para que los cambios puedan surtir efecto: 
 
 
-![Texto alternativo](/Take.png "Título alternativo")
+![Texto alternativo](./img/Take.png)
  
 Después de haber reiniciado, los cambios se actualizarán y la opción Actualizar se desactivará
 Todas las opciones se guardan en el archivo settings.json. Dependiendo de qué plataforma (Windows, Mac, Linux) se esté utilizando el Azure Data Studio, la ubicación del archivo settings.json es diferente para cada plataforma. 
@@ -198,20 +220,20 @@ Escribes
 ~~~
 SELECT * FROM sys.databases; (te da un cuadro con información).
 ~~~
-![Texto alternativo](/bddd.png "Título alternativo")
+![Texto alternativo](./img/bddd.png)
 
 Escribes
 ~~~
  SELECT * FROM pg_database;(te da otro cuadro).
 ~~~
-![Texto alternativo](/bddd1.png "Título alternativo")
+![Texto alternativo](./img/bddd1.png)
 
 Escribes 
 ~~~
 CREATE DATABASE TwoTrees; por ejemplo, y creas una base de datos con ese nombre.
 ~~~
 
-![Texto alternativo](/bddd2.png "Título alternativo")
+![Texto alternativo](./img/bddd2.png)
 
 ## Lenguaje de consulta estructurado
 
@@ -369,7 +391,7 @@ Si necesitas ver los nombres de tus archivos, puedes expoandir la carpeta en el 
 
 La clausula FROM especifica el nombre de la tabla.
 
-![Texto alternativo](/bddd3.png "Título alternativo")
+![Texto alternativo](./img/bddd3.png)
 
 Con esta consulta nos debería dar el nombre, el tamaño y el precio del producto.
 
@@ -418,56 +440,67 @@ Aparecerán todos los de categoría puros.
 ### Ver datos en secuencia
 
 Pulsa el atajo control + N
-~~~
+
+```sql
 SELECT *
 FROM nombre
 WHERE Size = 8
 ORDER BY Price;
-~~~
+```
 
 Escribiendo eso, nos ordena el precio de más barato a más caro.
-~~~
+
+```sql
 SELECT *
 FROM nombre
 WHERE Size = 8
 ORDER BY Price DESC;
-~~~
-
+```
 
 Ahora añadiendo DESC nos ordena de mayor a menor.
-~~~
+
+```sql
 SELECT *
 FROM nombre 1
 JOIN nombre 2
 ON nombre 1 = nombre 2;
-~~~
+```
+
 Si escribes esto, juntas las dos tablas. 
 
 El comando ON es para decir las tablas que crean ese enlace que deseas.
 
 En SQL Server:
-~~~
+
+```sql
 SELECT TOP 5 *
 FROM nombre
 ORDER BY Price DESC;
-~~~
+```
+
 Me devuelve solo 5 filas.
-~~~
+
+```sql
 SELECT TOP (10) PERCENT*
 FROM nombre
 ORDER BY Price DESC;
-~~~
+```
+
 Devuelve el 10 % del total de las filas que tengas.
 
 En Postgres para devolver las cinco filas tienes que poner:
-~~~
+
+```sql
 SELECT  *
 FROM nombre
 ORDER BY Price DESC
 LIMIT 5;
-~~~
+```
+
 ## Mostrar alias con AS
-![Texto alternativo](/bddd4.png "Título alternativo")
+
+![Texto alternativo](./img/bddd4.png)
+
 Con el comando AS cambiamos el nombre de las columnas para que estén más claras.
 
 Si colocas el ratón entre columnas puedes moverlas para ver toda la información que posee.
@@ -476,11 +509,11 @@ Hacer esto te da más seguridad porque no tienen ni idea de como se llaman las c
 
 También se puede cambiar el nombre de tablas con el comando AS.
 
-![Texto alternativo](/bddd5.png "Título alternativo")
+![Texto alternativo](./img/bddd5.png)
 
 En este caso products.products se llama p y products.categories se llama c.
 
-![Texto alternativo](/bddd6.png "Título alternativo")
+![Texto alternativo](./img/bddd6.png)
 
 Con las líneas 8, 9, 10 añadimos nuevas columnas a nuestra tabla de datos.
 
@@ -492,12 +525,13 @@ Se el precio de un producto cambia, los valores se calcularán automaticamente.
 
 Las funciones se escriben asi: 
 
-![Texto alternativo](/bddd7.png "Título alternativo")
+![Texto alternativo](./img/bddd7.png)
 
 y luego entre parentesis le dices los valores que quieres que procese.
 
 La primera columna mostrará el precio máximo la segunda el precio mínimo y la tercera el precio promedio.
-![Texto alternativo](/bddd8.png "Título alternativo")
+
+![Texto alternativo](./img/bddd8.png)
 
 Haciendo este cambio, los precios que te dan en la tabla te los dan con 2 decimales solo en este caso.
 
@@ -506,13 +540,14 @@ Haciendo este cambio, los precios que te dan en la tabla te los dan con 2 decima
 Primero debemos decirle al servidor que queremos agrupar líneas, se hace con el comando GROUP BY.
 
 GROUP BY iría despues del comando WHERE y antes del comando ORDER BY.
-![Texto alternativo](/bddd9.png "Título alternativo")
+
+![Texto alternativo](./img/bddd9.png)
 
 Este comando toma las filas de la misma categoría y los agrupa.
 
 Con order by hicimos que se ordenaran también los datos descendientemente.
 
-![Texto alternativo](/bddd10.png "Título alternativo")
+![Texto alternativo](./img/bddd10.png)
 
 Ese WHERE hace que salgan solo la cantidad de productos que cuestan menos de 15 euros y con el HAVING lo que hace es que muestra la columna de aceites de oliva que cuestan menos de 15 euros.
 
